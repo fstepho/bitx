@@ -14,9 +14,12 @@
             "address":{
                "type":"keyword"
             },
-            "n":{
-               "type":"keyword"
-            }
+			"blockheight":{
+				"type":"keyword"
+			},
+			"blockhash":{
+				"type":"keyword"
+			}
          }
       }
    }

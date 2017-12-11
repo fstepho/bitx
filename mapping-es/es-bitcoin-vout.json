@@ -12,6 +12,12 @@
             "txid":{
                "type":"keyword"
             },
+			"blockheight":{
+				"type":"keyword"
+			},
+			"blockhash":{
+				"type":"keyword"
+			},
             "scriptPubKey-asm":{
                "type":"keyword"
             },

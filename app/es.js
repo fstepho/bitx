@@ -22,6 +22,8 @@ ESIndexer.prototype.indexItem = function (item, callback) {
             txid: item.txid,
             type: "vout",
             date: new Date(item.time * 1000),
+            blockheight: item.blockheight,
+            blockhash: item.blockhash,
             "scriptPubKey-asm": vout.scriptPubKey.asm,
             "scriptPubKey-hex": vout.scriptPubKey.hex,
             "scriptPubKey-type": vout.scriptPubKey.type,
@@ -65,6 +67,8 @@ ESIndexer.prototype.indexItem = function (item, callback) {
             txid: item.txid,
             type: "vin",
             date: new Date(item.time * 1000),
+            blockheight: item.blockheight,
+            blockhash: item.blockhash,
             sequence: vin.sequence,
             coinbase: vin.coinbase,
             addr: vin.addr,
@@ -113,8 +117,9 @@ ESIndexer.prototype.indexItem = function (item, callback) {
                 txid: item.txid,
                 type: "vout-address",
                 date: new Date(item.time * 1000),
-                address: address.address,
-                n: address.n
+                address: address,
+                blockheight: item.blockheight,
+                blockhash: item.blockhash
             }
             console.log("Indexing " + JSON.stringify(toIndex));
             esClient.index({

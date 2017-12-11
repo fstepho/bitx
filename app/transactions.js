@@ -1,5 +1,4 @@
 'use strict';
-
 var ESIndexer = require('./es.js');
 var async = require("async");
 
