@@ -1,0 +1,42 @@
+{
+"mappings" : {
+		
+	"vout":{
+         "properties":{
+			"type":{
+				"type":"keyword"
+			},
+			"date":{
+				"type":"date"
+			},
+            "txid":{
+               "type":"keyword"
+            },
+            "scriptPubKey-asm":{
+               "type":"keyword"
+            },
+            "scriptPubKey-hex":{
+               "type":"keyword"
+            },
+            "scriptPubKey-type":{
+               "type":"keyword"
+            },
+            "spentIndex":{
+               "type":"keyword"
+            },
+            "spentHeight":{
+               "type":"keyword"
+            },
+            "spentTxId":{
+               "type":"keyword"
+            },
+            "value":{
+               "type":"long"
+            },
+            "n":{
+               "type":"keyword"
+            }
+         }
+      }
+   }
+}

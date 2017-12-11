@@ -1,0 +1,76 @@
+version: '2'
+services:
+  bitcore-node:
+    container_name: bitcore
+    hostname: bitcore
+    build: .
+    networks:
+      - bitcoin
+    ports:
+      - 3232:3232
+      - 3001:3001
+    volumes:
+      - bitcore-data:/root/bitcoin-node/data
+      - ./bitcoin.conf:/root/bitcoin-node/data/bitcoin.conf
+      - ./bitcore-node.json:/root/bitcoin-node/bitcore-node.json
+      - ./dev:/root/dev
+      - ./app:/root/bitcore-es
+
+#  app:
+#    container_name: app
+#    hostname: app
+#    build:
+#      context: .
+#      dockerfile: Dockerfile-app
+#    networks:
+#      - bitcoin
+#    volumes:
+#      - bitcore-data:/root/bitcoin-node/data
+#      - ./dev:/root/dev
+
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:6.0.0
+    container_name: elasticsearch
+    hostname: elasticsearch
+    environment:
+      - cluster.name=bitcoin-cluster
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms512m -Xmx512m"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    mem_limit: 1g
+    volumes:
+      - esdata:/usr/share/elasticsearch/data
+      - ./elasticsearch.yml:/usr/share/elasticsearch/config/elasticsearch.yml
+    ports:
+      - 9200:9200
+    networks:
+      - bitcoin
+
+  kibana:
+    image: docker.elastic.co/kibana/kibana:6.0.0
+    container_name: kibana
+    hostname: kibana
+    ports:
+      - 5601:5601
+    networks:
+      - bitcoin
+
+  head:
+    image: mobz/elasticsearch-head:5
+    container_name: head
+    ports:
+      - 9100:9100
+    networks:
+      - bitcoin
+
+volumes:
+  bitcore-data:
+  esdata:
+    driver: local
+
+networks:
+  bitcoin:
+    driver: bridge

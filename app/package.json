@@ -1,0 +1,33 @@
+{
+  "name": "bitx",
+  "version": "1.0.0",
+  "description": "Interactions code with a full Bitcoin node Bitcore.",
+  "author": "Fabien Stepho <stepho.fabien@gmail.com>",
+  "main": "index.js",
+  "keywords": [
+    "bitcoin",
+    "transaction",
+    "address",
+    "p2p",
+    "ecies",
+    "cryptocurrency",
+    "blockchain",
+    "payment",
+    "bip21",
+    "bip32",
+    "bip37",
+    "bip69",
+    "bip70",
+    "multisig"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fstepho/bitx.git"
+  },
+  "dependencies": {
+    "elasticsearch": "^14.0.0",
+    "async": "^2.6.0"
+  },
+  "license": "MIT",
+  "devDependencies": {}
+}

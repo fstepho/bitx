@@ -1,0 +1,42 @@
+
+{
+   "mappings":{
+      "vin":{
+         "properties":{
+			"date":{
+				"type":"date"
+			},
+            "txid":{
+               "type":"keyword"
+            },
+            "sequence":{
+               "type":"keyword"
+            },
+            "coinbase":{
+               "type":"keyword"
+            },
+            "scriptSig-asm":{
+               "type":"keyword"
+            },
+            "scriptSig-hex":{
+               "type":"keyword"
+            },
+            "valueSat":{
+               "type":"long"
+            },
+            "addr":{
+               "type":"keyword"
+            },
+            "value":{
+               "type":"long"
+            },
+            "n":{
+               "type":"keyword"
+            },
+            "vout":{
+               "type":"long"
+            }
+         }
+      }
+   }
+}

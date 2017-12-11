@@ -1,0 +1,20 @@
+{
+   "mappings":{
+      "vout-address":{
+         "properties":{
+			"date":{
+				"type":"date"
+			},
+            "txid":{
+               "type":"keyword"
+            },
+            "address":{
+               "type":"keyword"
+            },
+            "n":{
+               "type":"keyword"
+            }
+         }
+      }
+   }
+}

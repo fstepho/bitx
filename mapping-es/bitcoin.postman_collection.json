@@ -1,0 +1,111 @@
+{
+	"variables": [],
+	"info": {
+		"name": "bitcoin",
+		"_postman_id": "90277762-89a3-1a1c-588d-4f90e8d20a7b",
+		"description": "",
+		"schema": "https://schema.getpostman.com/json/collection/v2.0.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "BItcoin mapping tx",
+			"request": {
+				"url": "http://localhost:9200/bitcoin-tx",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\t\"mappings\" : {\r\n\t\t\"tx\":{\r\n\t\t  \"properties\":{\r\n\t\t\t\"type\":{\r\n\t\t\t\t\"type\":\"keyword\"\r\n\t\t\t},\r\n\t\t\t \"date\":{\r\n\t\t\t\t\"type\":\"date\"\r\n\t\t\t },\r\n\t\t\t \"fees\":{\r\n\t\t\t\t\"type\":\"long\"\r\n\t\t\t },\r\n\t\t\t \"locktime\":{\r\n\t\t\t\t\"type\":\"long\"\r\n\t\t\t },\r\n\t\t\t \"txid\":{\r\n\t\t\t\t\"type\":\"keyword\"\r\n\t\t\t },\r\n\t\t\t \"confirmations\":{\r\n\t\t\t\t\"type\":\"long\"\r\n\t\t\t },\r\n\t\t\t \"version\":{\r\n\t\t\t\t\"type\":\"keyword\"\r\n\t\t\t },\r\n\t\t\t \"blockheight\":{\r\n\t\t\t\t\"type\":\"keyword\"\r\n\t\t\t },\r\n\t\t\t \"valueOut\":{\r\n\t\t\t\t\"type\":\"long\"\r\n\t\t\t },\r\n\t\t\t \"blockhash\":{\r\n\t\t\t\t\"type\":\"keyword\"\r\n\t\t\t },\r\n\t\t\t \"size\":{\r\n\t\t\t\t\"type\":\"long\"\r\n\t\t\t },\r\n\t\t\t \"blocktime\":{\r\n\t\t\t\t\"type\":\"long\"\r\n\t\t\t },\r\n\t\t\t \"isCoinBase\":{\r\n\t\t\t\t\"type\":\"boolean\"\r\n\t\t\t },\r\n\t\t\t \"valueIn\":{\r\n\t\t\t\t\"type\":\"long\"\r\n\t\t\t }\r\n\t\t  }\r\n\t   }\r\n   }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BItcoin mapping vout",
+			"request": {
+				"url": "http://localhost:9200/bitcoin-vout",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n\"mappings\" : {\r\n\t\t\r\n\t\"vout\":{\r\n         \"properties\":{\r\n\t\t\t\"type\":{\r\n\t\t\t\t\"type\":\"keyword\"\r\n\t\t\t},\r\n\t\t\t\"date\":{\r\n\t\t\t\t\"type\":\"date\"\r\n\t\t\t},\r\n            \"txid\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"scriptPubKey-asm\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"scriptPubKey-hex\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"scriptPubKey-type\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"spentIndex\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"spentHeight\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"spentTxId\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"value\":{\r\n               \"type\":\"long\"\r\n            },\r\n            \"n\":{\r\n               \"type\":\"keyword\"\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BItcoin mapping vin",
+			"request": {
+				"url": "http://localhost:9200/bitcoin-vin",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "\r\n{\r\n   \"mappings\":{\r\n      \"vin\":{\r\n         \"properties\":{\r\n\t\t\t\"date\":{\r\n\t\t\t\t\"type\":\"date\"\r\n\t\t\t},\r\n            \"txid\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"sequence\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"coinbase\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"scriptSig-asm\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"scriptSig-hex\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"valueSat\":{\r\n               \"type\":\"long\"\r\n            },\r\n            \"addr\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"value\":{\r\n               \"type\":\"long\"\r\n            },\r\n            \"n\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"vout\":{\r\n               \"type\":\"long\"\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "BItcoin mapping vout-address",
+			"request": {
+				"url": "http://localhost:9200/bitcoin-vout-address",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n   \"mappings\":{\r\n      \"vout-address\":{\r\n         \"properties\":{\r\n\t\t\t\"date\":{\r\n\t\t\t\t\"type\":\"date\"\r\n\t\t\t},\r\n            \"txid\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"address\":{\r\n               \"type\":\"keyword\"\r\n            },\r\n            \"n\":{\r\n               \"type\":\"keyword\"\r\n            }\r\n         }\r\n      }\r\n   }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		},
+		{
+			"name": "bitcoin creat index",
+			"request": {
+				"url": "http://localhost:9200/bitcoin",
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json",
+						"description": ""
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"settings\" : {\r\n        \"index\" : {\r\n            \"number_of_shards\" : 3, \r\n            \"number_of_replicas\" : 2 \r\n        }\r\n    }\r\n}"
+				},
+				"description": ""
+			},
+			"response": []
+		}
+	]
+}
