@@ -3,6 +3,9 @@
    "mappings":{
       "vin":{
          "properties":{
+			"type":{
+				"type":"keyword"
+			},
 			"date":{
 				"type":"date"
 			},

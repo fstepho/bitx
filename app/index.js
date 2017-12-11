@@ -48,7 +48,7 @@ BitcoreES.prototype.indexation = function () {
     queue.drain = function() {
         console.log("All done");
     };
-    for (var height = 1; height<500000; height++){
+    for (var height = 325; height<500000; height++){
         // Queue the block heigth for processing
         console.log("Pushing block height " + height);
         queue.push({"height": height, "node": node});

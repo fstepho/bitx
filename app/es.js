@@ -107,6 +107,7 @@ ESIndexer.prototype.indexItem = function (item, callback) {
     // INDEXATION VOUT ADDRESSES
     item.vout.forEach(function (vout) {
         vout.scriptPubKey.addresses.forEach(function (address) {
+            console.log("Indexing vout address" + JSON.stringify(address));
             indexingDoneLoop3 = false;
             var toIndex = {
                 txid: item.txid,
@@ -115,7 +116,7 @@ ESIndexer.prototype.indexItem = function (item, callback) {
                 address: address.address,
                 n: address.n
             }
-            //console.log("Indexing " + JSON.stringify(toIndex));
+            console.log("Indexing " + JSON.stringify(toIndex));
             esClient.index({
                 index: 'bitcoin-vout-address',
                 type: "vout-address",
